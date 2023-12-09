@@ -22,7 +22,7 @@ variables:
   # Agent VM image name
 #  vmImageName: 'ubuntu-latest'
 pool:
-  name: 'myAgentPipeline'
+  name: myAgentPipeline
 
 stages:
 - stage: Build
