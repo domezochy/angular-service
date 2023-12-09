@@ -1,11 +1,11 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14-alpine
+FROM node: latest as node
 
 # Set the working directory to /app
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+#COPY package*.json ./
 
 # Install dependencies
 RUN npm install
@@ -17,7 +17,11 @@ COPY . .
 RUN npm run build --prod
 
 # Expose the port that the app will run on
-EXPOSE 80
+#EXPOSE 80
 
 # Define the command to run your application
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
+
+#stage 2
+FROM nginx:alpine
+COPY --from=node /app/dist/angular-service /usr/share/nginx/html
