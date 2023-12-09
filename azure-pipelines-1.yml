@@ -5,6 +5,8 @@
 trigger:
 - master
 
+pool: myAgentPipeline
+
 resources:
 - repo: self
 
