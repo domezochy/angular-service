@@ -5,8 +5,7 @@
 trigger:
 - master
 
-#pool:
-#  name: myAgentPipeline
+pool: myAgentPipeline
 
 resources:
 - repo: self
@@ -21,7 +20,7 @@ variables:
 
   # Agent VM image name
 #  vmImageName: 'ubuntu-latest'
-pool: myAgentPipeline
+
 
 stages:
 - stage: Build
@@ -29,7 +28,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-#    pool: $(name)
+    pool: myAgentPipeline
 #      vmImage: $(vmImageName)
     steps:
     - task: Docker@2
