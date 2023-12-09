@@ -21,8 +21,7 @@ variables:
 
   # Agent VM image name
 #  vmImageName: 'ubuntu-latest'
-pool:
-  name: myAgentPipeline
+pool: myAgentPipeline
 
 stages:
 - stage: Build
@@ -30,7 +29,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: $(name)
+#    pool: $(name)
 #      vmImage: $(vmImageName)
     steps:
     - task: Docker@2
